@@ -7,8 +7,8 @@ CREATE PROCEDURE AddStudent
     @ClassNumber INT
 AS
 BEGIN
-        INSERT INTO Students (FirstName, LastName, Age, ClassNumber)
-        VALUES (@FirstName, @LastName, @Age, @ClassNumber);
+        INSERT INTO Students (StudentID,FirstName, LastName, Age, ClassNumber)
+        VALUES (@StudentID,@FirstName, @LastName, @Age, @ClassNumber);
 END;
 GO
 
@@ -22,7 +22,8 @@ CREATE PROCEDURE UpdateStudent
 AS
 BEGIN
 UPDATE Students
-        SET FirstName = @FirstName,
+        SET StudentID = @StudentID
+	    FirstName = @FirstName,
             LastName = @LastName,
             Age = @Age,
             ClassNumber = @ClassNumber
@@ -40,8 +41,8 @@ CREATE PROCEDURE AddInstructor
     @CourseID INT
 AS
 BEGIN
-        INSERT INTO Instructors (FirstName, LastName, PhoneNumber, Email, CourseID)
-        VALUES (@FirstName, @LastName, @PhoneNumber, @Email, @CourseID);
+        INSERT INTO Instructors (InstructorID,FirstName, LastName, PhoneNumber, Email, CourseID)
+        VALUES (@InstructorID,@FirstName, @LastName, @PhoneNumber, @Email, @CourseID);
 END;
 GO
 
@@ -56,7 +57,8 @@ CREATE PROCEDURE UpdateInstructor
 AS
 BEGIN
         UPDATE Instructors
-        SET FirstName = @FirstName,
+        SET InstructorID=@InstructorID
+	    FirstName = @FirstName,
             LastName = @LastName,
             PhoneNumber = @PhoneNumber,
             Email = @Email,
