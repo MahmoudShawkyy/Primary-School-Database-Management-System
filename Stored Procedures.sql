@@ -22,7 +22,7 @@ CREATE PROCEDURE UpdateStudent
 AS
 BEGIN
 UPDATE Students
-        SET StudentID = @StudentID
+        SET StudentID = @StudentID,
 	    FirstName = @FirstName,
             LastName = @LastName,
             Age = @Age,
@@ -57,7 +57,7 @@ CREATE PROCEDURE UpdateInstructor
 AS
 BEGIN
         UPDATE Instructors
-        SET InstructorID=@InstructorID
+        SET InstructorID=@InstructorID,
 	    FirstName = @FirstName,
             LastName = @LastName,
             PhoneNumber = @PhoneNumber,
@@ -120,21 +120,21 @@ BEGIN
     SELECT 
         A.AttendanceID,
         S.StudentID,
-        A.Status,
 		A.Date
     FROM 
         Attendance A
     INNER JOIN 
-        Students S ON A.StudentID = S.StudentID
+        Students S ON A.ClassNumber= S.ClassNumber
     INNER JOIN 
-        Classes CL ON A.ClassID = CL.ClassID
+        Classes CL ON A.ClassNumber = CL.ClassNumber
     INNER JOIN 
-        Courses C ON A.CourseID = C.CourseID
+        Courses C ON CL.SemesterNumber = C.SemesterNumber
     WHERE 
-        A.AttendanceDate = @AttendanceDate
+        A.Date = @AttendanceDate
         AND CL.ClassNumber = @ClassNumber
         AND C.CourseID = @CourseID
     ORDER BY 
         S.LastName, S.FirstName;
 END;
 GO
+
