@@ -1,23 +1,16 @@
-INSERT INTO Semsters (SemsterNumber, Status)
+INSERT INTO Semesters (SemesterNumber, Status)
 VALUES 
     (1, 'Active'),
     (2, 'Inactive');
 
-INSERT INTO Classes (ClassNumber, SemsterNumber)
+
+INSERT INTO Classes (ClassNumber, SemesterNumber)
 VALUES 
     (1,1),
     (2,2);
 
 
-INSERT INTO Students (StudentID, FirstName, LastName, Age, ClassNumber)
-VALUES 
-    (1, 'Mohammed', 'Ahmed', 8, 1),
-    (2, 'Ali', 'Abdullah', 10,3),
-    (3, 'Fatima', 'Hussein', 11,4),
-    (4, 'Sara', 'Omar', 9,2);
-
-
-INSERT INTO Courses (CourseID, CourseName, SemsterNumber)
+INSERT INTO Courses (CourseID, CourseName, SemesterNumber)
 VALUES 
     (1, 'Math', 1),
     (2, 'English', 2);
@@ -29,24 +22,25 @@ VALUES
     (2, 'Mr. Hassan', 'Ibrahim', 'hassan.ibrahim@example.com', '01098765432', 2);
 
 
-INSERT INTO Attendance (AttendanceID,Date, ClassNumber)
+INSERT INTO Exams (ExamID, CourseID)
+VALUES 
+    (1, 1), 
+    (2, 2); 
+
+
+INSERT INTO Attendance (AttendanceID, Date, ClassNumber)
 VALUES 
     (1, '2024-12-01', 1),
     (2, '2024-12-01', 2),
     (3, '2024-12-02', 1);
 
 
-INSERT INTO AttendanceStatus (StudentID, AttendanceID, Status)
+INSERT INTO Students (StudentID, FirstName, LastName, Age, ClassNumber)
 VALUES 
-    (1, 1, 'Present'),
-    (2, 2, 'Absent'),
-    (3, 3, 'Late');
-
-
-INSERT INTO Exams (ExamID, CourseID)
-VALUES 
-    (1, 1), 
-    (2, 2); 
+    (1, 'Mohammed', 'Ahmed', 8, 1),
+    (2, 'Ali', 'Abdullah', 10,2),
+    (3, 'Fatima', 'Hussein', 11,1),
+    (4, 'Sara', 'Omar', 9,2);
 
 
 INSERT INTO Grades (StudentID, ExamID, Grade)
@@ -55,3 +49,8 @@ VALUES
     (2, 1, 90);
 
 
+INSERT INTO AttendanceStatus (StudentID, AttendanceID, Status)
+VALUES 
+    (1, 1, 'Present'),
+    (2, 2, 'Absent'),
+    (3, 3, 'Late');
