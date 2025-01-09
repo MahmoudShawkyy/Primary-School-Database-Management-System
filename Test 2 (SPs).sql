@@ -1,9 +1,9 @@
 EXEC AddStudent 
-    @StudentID = 4, 
+    @StudentID = 5, 
     @FirstName = 'Yasser',
     @LastName = 'Mahmoud',
     @Age = 11,
-    @ClassNumber = 4;
+    @ClassNumber = 2;
 
 
 EXEC UpdateStudent 
@@ -13,11 +13,12 @@ EXEC UpdateStudent
     @Age = 10,
     @ClassNumber = 1;
 
+
 EXEC AddInstructor 
     @InstructorID = 4,
     @FirstName = 'Sayed',
     @LastName = 'Taha',
-    @PhoneNumber = '01012345678',
+    @PhoneNumber = '01012344678',
     @Email = 'sayedtaha10@example.com',
     @CourseID = 1;
 
@@ -30,5 +31,3 @@ EXEC RecordAttendance
 
 EXEC GetInstructor 
     @InstructorID = 1;
-
-
